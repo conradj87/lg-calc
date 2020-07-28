@@ -1,6 +1,6 @@
 const debug=false
 
-let numRolls=0
+let numSims=0
 
 let attackers = {
   num: 0,
@@ -21,7 +21,7 @@ let simulationCounter = 0;
 $(document).ready(function () {
   $( "#calculate" ).click(function() {
     //Get vars
-    numRolls = $("#num-rolls").val()
+    numSims = $("#num-sims").val()
     attackers.num = $("#attacker-num").val()
     attackers.leader = $("#attacker-leader").is(":checked")
     defenders.num = $("#defender-num").val()
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     simulationCounter = 0;
     
-    for( let x=0; x<numRolls; x++){
+    for( let x=0; x<numSims; x++){
       //Need to manually copy the data, as to not overwrite the originals.
       var turnAttackers={
         num: attackers.num,
@@ -154,15 +154,15 @@ function rollDice(){
 function processResults(){
   let winCounter=0;
   let armiesLeft=0;
-  for(let i = 0; i<numRolls; i++){
+  for(let i = 0; i<numSims; i++){
     if( attackers.results[i]>1){
       winCounter++;
     }
     armiesLeft+=attackers.results[i]
   }
-  let winPercentage = Math.round(winCounter/numRolls*100);
+  let winPercentage = Math.round(winCounter/numSims*100);
   attackers.results.sort((a,b)=>a-b)
-  let avg = armiesLeft/numRolls
+  let avg = armiesLeft/numSims
   let median = attackers.results[Math.floor(attackers.results.length/2)]
   console.log(`----- Results! -----`)
   console.log(`Win Percentage: ${winPercentage}`)
