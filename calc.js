@@ -75,12 +75,12 @@ function simulateTurn(turnAttackers, turnDefenders){
   for(let i =0; i<turnAttackers.dice; i++){
     turnAttackers.results[i]=rollDice();
   }
-  turnAttackers.results.sort().reverse();
+  turnAttackers.results.sort((a,b)=>a-b).reverse();
 
   for(let i =0; i<turnDefenders.dice; i++){
     turnDefenders.results[i]=rollDice();
   }
-  turnDefenders.results.sort().reverse();
+  turnDefenders.results.sort((a,b)=>a-b).reverse();
 
   //Get the results
   if(turnAttackers.leader){
@@ -161,7 +161,7 @@ function processResults(){
     armiesLeft+=attackers.results[i]
   }
   let winPercentage = Math.round(winCounter/numRolls*100);
-  attackers.results.sort()
+  attackers.results.sort((a,b)=>a-b)
   let avg = armiesLeft/numRolls
   let median = attackers.results[Math.floor(attackers.results.length/2)]
   console.log(`----- Results! -----`)
@@ -171,8 +171,11 @@ function processResults(){
 
   $(".resultsOutput").html(
     "Win Percentage: " + winPercentage +
-    "<br/>Average Remaining: " + avg +
-    "<br/>Median Remaining: " + median
+    "<br/><br/>Armies Remaining" +
+    "<br/>    Average: " + avg +
+    "<br/>    Median: " + median +
+    "<br/>    Min: " + attackers.results[attackers.results.length-1] +
+    "<br/>    Max: " + attackers.results[0]
   )
   $(".results").show()
 }
