@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="calc.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>LandGrab Calculator</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="attackers">
+      <h2>Attackers</h2>
+      <label for="attacker-num">Number of Attackers</label>
+      <input type="number" name="attacker-num" id="attacker-num"> <br />
+      <label for="attacker-leader">Leader?</label>
+      <input type="checkbox" name="attacker-leader" id="attacker-leader">
+    </div>
+
+    <div id="defender">
+      <h2>Defenders</h2>
+      <label for="defender-num">Number of Defenders</label>
+      <input type="number" name="defender-num" id="defender-num"><br />
+      <label for="defender-leader">Leader?</label>
+      <input type="checkbox" name="defender-leader" id="defender-leader"><br />
+      <label for="defender-capital">capital?</label>
+      <input type="checkbox" name="defender-capital" id="defender-capital">
+    </div>
+
+    <div class="results">
+      <button id="calculate">Calculate</button>
+      <div class="resultsOutput">
+      </div>
+    </div>
+
+    <div class="advanced">
+      <h3>Advanced</h3>
+      
+      <label for="num-rolls">Number of rolls to simulate</label>
+      <input type="number" value="1000" name="num-rolls" id="num-rolls"><br />
+    </div>
+
+  </div>
+</body>
+
+</html>
