@@ -160,10 +160,19 @@ function processResults(){
     }
     armiesLeft+=attackers.results[i]
   }
-  let winPercentage = winCounter/numRolls*100;
+  let winPercentage = Math.round(winCounter/numRolls*100);
   attackers.results.sort()
+  let avg = armiesLeft/numRolls
+  let median = attackers.results[Math.floor(attackers.results.length/2)]
   console.log(`----- Results! -----`)
   console.log(`Win Percentage: ${winPercentage}`)
-  console.log(`Average Remaining: ${armiesLeft/numRolls}`)
-  console.log(`Median remaining: ${attackers.results[Math.floor(attackers.results.length/2)]}`)
+  console.log(`Average Remaining: ${avg}`)
+  console.log(`Median remaining: ${median}`)
+
+  $(".resultsOutput").html(
+    "Win Percentage: " + winPercentage +
+    "<br/>Average Remaining: " + avg +
+    "<br/>Median Remaining: " + median
+  )
+  $(".results").show()
 }
