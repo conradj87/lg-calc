@@ -27,6 +27,8 @@ $(document).ready(function () {
     defenders.num = $("#defender-num").val()
     defenders.leader = $("#defender-leader").is(":checked")
     defenders.capital = $("#defender-capital").is(":checked")
+    defenders.fortress = $("#defender-fortress").is(":checked")
+    
     
     console.log("Initial State.")
     debugOutput(attackers, defenders)
@@ -47,6 +49,7 @@ $(document).ready(function () {
         num: defenders.num,
         leader: defenders.leader,
         capital: defenders.capital,
+        fortress: defenders.fortress,
         dice: 0,
         results:[]
       }
@@ -90,6 +93,11 @@ function simulateTurn(turnAttackers, turnDefenders){
   if(turnDefenders.leader){
     turnDefenders.results[0]++;
   }
+
+  if(turnDefenders.fortress){
+    turnDefenders.results[0]++;
+  }
+  
 
   for( let i=0; i<Math.min(turnAttackers.results.length, turnDefenders.results.length); i++){
     if( turnAttackers.results[i] > turnDefenders.results[i]){
