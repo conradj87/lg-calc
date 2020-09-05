@@ -182,8 +182,8 @@ function processResults(){
     "<br/><br/>Armies Remaining" +
     "<br/>    Average: " + avg +
     "<br/>    Median: " + median +
-    "<br/>    Min: " + attackers.results[attackers.results.length-1] +
-    "<br/>    Max: " + attackers.results[0]
+    "<br/>    Max: " + attackers.results[attackers.results.length-1] +
+    "<br/>    Min: " + attackers.results[0]
   )
   $(".results").show()
 }
