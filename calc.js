@@ -94,7 +94,7 @@ function simulateTurn(turnAttackers, turnDefenders){
     turnDefenders.results[0]++;
   }
 
-  if(turnDefenders.fortress){
+  if(turnDefenders.fortress && !turnDefenders.capital){
     turnDefenders.results[0]++;
   }
   
