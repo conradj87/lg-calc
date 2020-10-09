@@ -98,7 +98,6 @@ function simulateTurn(turnAttackers, turnDefenders){
     turnDefenders.results[0]++;
   }
   
-
   for( let i=0; i<Math.min(turnAttackers.results.length, turnDefenders.results.length); i++){
     if( turnAttackers.results[i] > turnDefenders.results[i]){
       turnDefenders.num--;
